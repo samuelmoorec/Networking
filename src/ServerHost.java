@@ -10,6 +10,10 @@ public class ServerHost {
             ServerSocket serverSocket = new ServerSocket(4325);
             Socket socket = serverSocket.accept();
             DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
+            DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+
             String inputString = dataInputStream.readUTF();
             System.out.println("message: " + inputString);
             serverSocket.close();
